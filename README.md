@@ -11,7 +11,7 @@ To install the package, simply follow the steps below.
 Install the package using Composer:
 
 ```
-$ composer require viacreative/sudo-su
+$ composer require auroralzdf/sudo-su
 ```
 
 Add the package's service provider to your app in your project's `AppServiceProvider`:
@@ -21,7 +21,7 @@ class AppServiceProvider extends ServiceProvider
 {
     public function register()
     {
-        if (config('app.debug')) {
+        if ($this->app->environment() !== 'production') {
             $this->app->register('VIACreative\SudoSu\ServiceProvider');
         }
     }
@@ -33,7 +33,7 @@ class AppServiceProvider extends ServiceProvider
 Include the partial in your layout file.
 
 ```php
-if (config('app.debug')) {
+@if (app()->environment() !== 'production')
     @include('sudosu::user-selector')
 @endif
 ```
