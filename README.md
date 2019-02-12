@@ -59,6 +59,10 @@ The path to the application User model. This will be used to retrieve the users 
 
 If your site has multiple login modules, you can set the `Auth guard` to select who you are going to use `sudo-su`.
 
+```php
+'current_guard' => 'bbs',
+```
+
 
 ## Disclaimer - DANGER!
 This package can pose a serious security issue if used incorrectly, as anybody will be able to take control of any user's account. Please ensure that the service provider is only registered when the app is in a debug/local environment.
